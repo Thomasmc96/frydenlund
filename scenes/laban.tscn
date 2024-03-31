@@ -1,0 +1,42 @@
+[gd_scene load_steps=7 format=3 uid="uid://bb5m4q25ap3u7"]
+
+[ext_resource type="Script" path="res://scripts/laban.gd" id="1_dm8ha"]
+[ext_resource type="Texture2D" uid="uid://ccdlwv0vsxvtn" path="res://art/animals/laban.png" id="2_asdeb"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2v46d"]
+atlas = ExtResource("2_asdeb")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kpa5w"]
+atlas = ExtResource("2_asdeb")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6qt0x"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2v46d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kpa5w")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 2.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xvvlx"]
+radius = 4.0
+
+[node name="Laban" type="CharacterBody2D"]
+script = ExtResource("1_dm8ha")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
+sprite_frames = SubResource("SpriteFrames_6qt0x")
+animation = &"idle"
+frame_progress = 0.15326
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 3)
+shape = SubResource("CircleShape2D_xvvlx")

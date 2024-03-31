@@ -1,0 +1,43 @@
+[gd_scene load_steps=7 format=3 uid="uid://dyugpmlegtfof"]
+
+[ext_resource type="Script" path="res://scripts/ditte.gd" id="1_b2o5f"]
+[ext_resource type="Texture2D" uid="uid://dlybtpux7ylj0" path="res://art/characters/ditte.png" id="1_xol2c"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_njrp4"]
+atlas = ExtResource("1_xol2c")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_khek0"]
+atlas = ExtResource("1_xol2c")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ar624"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_njrp4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_khek0")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 2.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vqf67"]
+radius = 3.0
+
+[node name="Ditte" type="CharacterBody2D"]
+y_sort_enabled = true
+script = ExtResource("1_b2o5f")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
+sprite_frames = SubResource("SpriteFrames_ar624")
+animation = &"idle"
+frame_progress = 0.725512
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 6)
+shape = SubResource("CircleShape2D_vqf67")
