@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://is3jli1ukyaw"]
+
+[ext_resource type="Texture2D" uid="uid://bbyhd0kk6pdhv" path="res://art/buildings/barn.png" id="1_l4max"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3j1m8"]
+size = Vector2(145, 31.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aupqd"]
+size = Vector2(63, 83)
+
+[node name="Barn" type="StaticBody2D"]
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_l4max")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(33, -2)
+shape = SubResource("RectangleShape2D_3j1m8")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(-73.5, 18.5)
+shape = SubResource("RectangleShape2D_aupqd")

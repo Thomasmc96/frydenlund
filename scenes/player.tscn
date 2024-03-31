@@ -290,7 +290,7 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qnwqg"]
-radius = 4.0
+radius = 5.0
 
 [node name="Player" type="CharacterBody2D"]
 y_sort_enabled = true
@@ -303,7 +303,7 @@ animation = &"walk_s"
 frame_progress = 0.606653
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 5)
+position = Vector2(0, 4)
 shape = SubResource("CircleShape2D_qnwqg")
 
 [node name="Camera2D" type="Camera2D" parent="."]

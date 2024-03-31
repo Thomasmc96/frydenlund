@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://bpuop4og6w5ln"]
+
+[ext_resource type="Texture2D" uid="uid://dde381w7r68fh" path="res://art/buildings/workshop.png" id="1_c2k6l"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7wcof"]
+size = Vector2(159, 49)
+
+[node name="Workshop" type="StaticBody2D"]
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_c2k6l")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 24.5)
+shape = SubResource("RectangleShape2D_7wcof")
