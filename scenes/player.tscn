@@ -167,7 +167,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"walk_e",
-"speed": 5.0
+"speed": 4.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -184,7 +184,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"walk_n",
-"speed": 5.0
+"speed": 4.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -201,7 +201,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"walk_ne",
-"speed": 5.0
+"speed": 4.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -218,7 +218,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"walk_nw",
-"speed": 5.0
+"speed": 4.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -235,7 +235,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"walk_s",
-"speed": 5.0
+"speed": 4.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -252,7 +252,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"walk_se",
-"speed": 5.0
+"speed": 4.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -269,7 +269,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"walk_sw",
-"speed": 5.0
+"speed": 4.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -286,7 +286,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"walk_w",
-"speed": 5.0
+"speed": 4.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qnwqg"]
@@ -299,8 +299,7 @@ script = ExtResource("1_ov3mq")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 unique_name_in_owner = true
 sprite_frames = SubResource("SpriteFrames_bwrbo")
-animation = &"walk_s"
-frame_progress = 0.606653
+animation = &"walk_w"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 4)

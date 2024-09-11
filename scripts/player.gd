@@ -5,7 +5,7 @@ class_name Player
 enum STATES {WALKING, IDLE}
 @onready var animated_sprite = %AnimatedSprite2D
 
-const speed = 80
+const speed = 50
 var state = STATES.IDLE
 
 var mouse_location = null

@@ -1,0 +1,42 @@
+[gd_scene load_steps=7 format=3 uid="uid://c0v0h3el2kucb"]
+
+[ext_resource type="Script" path="res://scripts/laban.gd" id="1_sciks"]
+[ext_resource type="Texture2D" uid="uid://cd7is7f3vnpj6" path="res://art/animals/thea.png" id="2_st1rm"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0y0un"]
+atlas = ExtResource("2_st1rm")
+region = Rect2(0, 50, 32, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mepsv"]
+atlas = ExtResource("2_st1rm")
+region = Rect2(32, 50, 32, 25)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6qt0x"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0y0un")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mepsv")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 1.5
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xvvlx"]
+radius = 4.0
+
+[node name="Thea" type="CharacterBody2D"]
+script = ExtResource("1_sciks")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
+sprite_frames = SubResource("SpriteFrames_6qt0x")
+animation = &"idle"
+frame_progress = 0.243938
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 3)
+shape = SubResource("CircleShape2D_xvvlx")
