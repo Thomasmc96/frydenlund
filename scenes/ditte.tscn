@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://dyugpmlegtfof"]
+[gd_scene load_steps=24 format=3 uid="uid://dyugpmlegtfof"]
 
 [ext_resource type="Script" path="res://scripts/ditte.gd" id="1_b2o5f"]
 [ext_resource type="Texture2D" uid="uid://dlybtpux7ylj0" path="res://art/characters/ditte.png" id="1_xol2c"]
@@ -160,6 +160,8 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_vqf67"]
 radius = 3.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_fibfo"]
+
 [node name="Ditte" type="CharacterBody2D"]
 y_sort_enabled = true
 script = ExtResource("1_b2o5f")
@@ -178,4 +180,11 @@ shape = SubResource("CircleShape2D_vqf67")
 unique_name_in_owner = true
 autostart = true
 
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_fibfo")
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

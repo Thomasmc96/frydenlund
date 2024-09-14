@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=3 uid="uid://br48noarrrpiq"]
+
+[ext_resource type="Script" path="res://scripts/hearth.gd" id="1_rcbfv"]
+[ext_resource type="Texture2D" uid="uid://ies74dndnbs3" path="res://art/items/hearth.png" id="1_vihsf"]
+
+[sub_resource type="Animation" id="Animation_pd86b"]
+resource_name = "rise"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -20)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nan3q"]
+_data = {
+"rise": SubResource("Animation_pd86b")
+}
+
+[node name="Hearth" type="Node2D"]
+script = ExtResource("1_rcbfv")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-4.76837e-07, -20)
+scale = Vector2(0.6875, 0.6875)
+texture = ExtResource("1_vihsf")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_nan3q")
+}
