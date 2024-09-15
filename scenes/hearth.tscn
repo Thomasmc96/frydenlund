@@ -28,8 +28,8 @@ _data = {
 script = ExtResource("1_rcbfv")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-4.76837e-07, -20)
-scale = Vector2(0.6875, 0.6875)
+position = Vector2(-1.19209e-07, -21)
+scale = Vector2(0.46875, 0.46875)
 texture = ExtResource("1_vihsf")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

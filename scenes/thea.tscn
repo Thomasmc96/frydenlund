@@ -1,6 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://c0v0h3el2kucb"]
+[gd_scene load_steps=8 format=3 uid="uid://c0v0h3el2kucb"]
 
-[ext_resource type="Script" path="res://scripts/laban.gd" id="1_sciks"]
+[ext_resource type="Script" path="res://scripts/cat.gd" id="1_h434w"]
 [ext_resource type="Texture2D" uid="uid://cd7is7f3vnpj6" path="res://art/animals/thea.png" id="2_st1rm"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0y0un"]
@@ -26,10 +26,13 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xvvlx"]
-radius = 4.0
+radius = 5.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1ivc0"]
+radius = 11.0
 
 [node name="Thea" type="CharacterBody2D"]
-script = ExtResource("1_sciks")
+script = ExtResource("1_h434w")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 unique_name_in_owner = true
@@ -38,5 +41,14 @@ animation = &"idle"
 frame_progress = 0.243938
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 3)
+position = Vector2(-1, 3)
 shape = SubResource("CircleShape2D_xvvlx")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-2, 2)
+shape = SubResource("CircleShape2D_1ivc0")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

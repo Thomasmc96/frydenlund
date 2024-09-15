@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-class_name Laban
+class_name Dog
 
 const RiseHearth = preload("res://scripts/riseHearth.gd")
 

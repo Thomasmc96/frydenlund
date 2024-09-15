@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://dyugpmlegtfof"]
+[gd_scene load_steps=27 format=3 uid="uid://dyugpmlegtfof"]
 
 [ext_resource type="Script" path="res://scripts/ditte.gd" id="1_b2o5f"]
 [ext_resource type="Texture2D" uid="uid://dlybtpux7ylj0" path="res://art/characters/ditte.png" id="1_xol2c"]
@@ -10,6 +10,18 @@ region = Rect2(0, 0, 32, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_khek0"]
 atlas = ExtResource("1_xol2c")
 region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j5rjr"]
+atlas = ExtResource("1_xol2c")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8y0iq"]
+atlas = ExtResource("1_xol2c")
+region = Rect2(32, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8x21r"]
+atlas = ExtResource("1_xol2c")
+region = Rect2(32, 96, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_g5roy"]
 atlas = ExtResource("1_xol2c")
@@ -87,6 +99,30 @@ animations = [{
 "loop": true,
 "name": &"idle",
 "speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j5rjr")
+}],
+"loop": true,
+"name": &"idle_e",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8y0iq")
+}],
+"loop": true,
+"name": &"idle_n",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8x21r")
+}],
+"loop": true,
+"name": &"idle_w",
+"speed": 0.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -169,8 +205,7 @@ script = ExtResource("1_b2o5f")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 unique_name_in_owner = true
 sprite_frames = SubResource("SpriteFrames_ar624")
-animation = &"walk_w"
-frame_progress = 0.636107
+animation = &"idle_w"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 6)
@@ -178,6 +213,7 @@ shape = SubResource("CircleShape2D_vqf67")
 
 [node name="Timer" type="Timer" parent="."]
 unique_name_in_owner = true
+wait_time = 2.0
 autostart = true
 
 [node name="Area2D" type="Area2D" parent="."]
