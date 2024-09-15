@@ -311,25 +311,29 @@ shape = SubResource("CircleShape2D_qnwqg")
 zoom = Vector2(4, 4)
 
 [node name="Up" type="TouchScreenButton" parent="Camera2D"]
-position = Vector2(3, -139)
-scale = Vector2(7, 12)
+position = Vector2(2, -178)
+scale = Vector2(30, 12)
 shape = SubResource("RectangleShape2D_c2elq")
 action = "up"
+visibility_mode = 1
 
 [node name="Down" type="TouchScreenButton" parent="Camera2D"]
-position = Vector2(5, 136)
-scale = Vector2(7, 12)
+position = Vector2(7, 162)
+scale = Vector2(30, 12)
 shape = SubResource("RectangleShape2D_c2elq")
 action = "down"
+visibility_mode = 1
 
 [node name="Left" type="TouchScreenButton" parent="Camera2D"]
-position = Vector2(-137, 0)
-scale = Vector2(12, 7)
+position = Vector2(-189, -2)
+scale = Vector2(15, 30)
 shape = SubResource("RectangleShape2D_c2elq")
 action = "left"
+visibility_mode = 1
 
 [node name="Right" type="TouchScreenButton" parent="Camera2D"]
-position = Vector2(137, 1)
-scale = Vector2(12, 7)
+position = Vector2(196, -1)
+scale = Vector2(15, 30)
 shape = SubResource("RectangleShape2D_c2elq")
 action = "right"
+visibility_mode = 1
