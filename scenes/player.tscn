@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://cgrvu8ipigsye"]
+[gd_scene load_steps=40 format=3 uid="uid://cgrvu8ipigsye"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_ov3mq"]
 [ext_resource type="Texture2D" uid="uid://dhl4dgm33cib2" path="res://art/characters/player.png" id="1_x8jhl"]
@@ -292,6 +292,8 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_qnwqg"]
 radius = 5.0
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c2elq"]
+
 [node name="Player" type="CharacterBody2D"]
 y_sort_enabled = true
 script = ExtResource("1_ov3mq")
@@ -307,3 +309,27 @@ shape = SubResource("CircleShape2D_qnwqg")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(4, 4)
+
+[node name="Up" type="TouchScreenButton" parent="Camera2D"]
+position = Vector2(3, -78)
+scale = Vector2(6, 6)
+shape = SubResource("RectangleShape2D_c2elq")
+action = "up"
+
+[node name="Down" type="TouchScreenButton" parent="Camera2D"]
+position = Vector2(6, 77)
+scale = Vector2(6, 6)
+shape = SubResource("RectangleShape2D_c2elq")
+action = "down"
+
+[node name="Left" type="TouchScreenButton" parent="Camera2D"]
+position = Vector2(-103, 1)
+scale = Vector2(8, 8)
+shape = SubResource("RectangleShape2D_c2elq")
+action = "left"
+
+[node name="Right" type="TouchScreenButton" parent="Camera2D"]
+position = Vector2(101, 4)
+scale = Vector2(8, 8)
+shape = SubResource("RectangleShape2D_c2elq")
+action = "right"
