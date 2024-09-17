@@ -1,7 +1,6 @@
-[gd_scene load_steps=20 format=3 uid="uid://cbbjultibaqt2"]
+[gd_scene load_steps=18 format=3 uid="uid://cbbjultibaqt2"]
 
 [ext_resource type="Texture2D" uid="uid://ctegnplc4tn8n" path="res://art/world/survivalgame-terrian-defult.png" id="1_bekrm"]
-[ext_resource type="Script" path="res://scripts/world.gd" id="1_gmt6a"]
 [ext_resource type="PackedScene" uid="uid://cgrvu8ipigsye" path="res://scenes/player.tscn" id="1_lki2t"]
 [ext_resource type="Texture2D" uid="uid://ccaipsxr3ynil" path="res://art/world/survivalgame-trees.png" id="2_7mkny"]
 [ext_resource type="Texture2D" uid="uid://c4fac75dhbtkv" path="res://art/world/gravel.png" id="3_dnrkd"]
@@ -447,12 +446,8 @@ sources/2 = SubResource("TileSetAtlasSource_a72f6")
 sources/3 = SubResource("TileSetAtlasSource_aieja")
 pattern_0 = SubResource("TileMapPattern_wc6in")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_e7vek"]
-size = Vector2(12, 12)
-
 [node name="World" type="Node2D"]
 y_sort_enabled = true
-script = ExtResource("1_gmt6a")
 
 [node name="TileMap" type="TileMap" parent="."]
 y_sort_enabled = true
@@ -466,7 +461,7 @@ layer_1/y_sort_enabled = true
 layer_1/tile_data = PackedInt32Array(-196604, 524290, 0, -196603, 524290, 0, -393227, 2, 0, -327691, 2, 1, -262155, 2, 1, -196619, 2, 2, -393226, 65538, 0, -327690, 262146, 1, -262154, 262146, 1, -196618, 262146, 2, -393225, 65538, 0, -327689, 262146, 1, -262153, 262146, 1, -196617, 65538, 2, -393224, 131074, 0, -327688, 327682, 1, -262152, 131074, 1, -196616, 131074, 2, 327682, 524290, 0, 393219, 524290, 0, 458756, 524290, 0, 196611, 524290, 1, 262148, 524290, 1, 327685, 524290, 1, 393222, 524290, 1, 458758, 524290, 0, -196605, 1114114, 0, -196602, 1114114, 1, -196601, 524290, 1, -131064, 524290, 1, -65528, 1114114, 1, 8, 1114114, 2, 65544, 1114114, 2, 131079, 524290, 2, 131078, 524290, 0, 131077, 524290, 1, 524282, 524290, 1, 524281, 1114114, 1)
 
 [node name="Player" parent="." instance=ExtResource("1_lki2t")]
-position = Vector2(-9, -2)
+position = Vector2(-13, 10)
 
 [node name="Ditte" parent="." instance=ExtResource("4_tmehp")]
 position = Vector2(28, -6)
@@ -486,17 +481,8 @@ position = Vector2(-20, 76)
 [node name="Barn" parent="." instance=ExtResource("9_aau4c")]
 position = Vector2(-39, -33)
 
-[node name="Tom" parent="." instance=ExtResource("11_vhbx2")]
+[node name="Laban2" parent="." instance=ExtResource("11_vhbx2")]
 position = Vector2(15, 151)
 
 [node name="Thea" parent="." instance=ExtResource("12_1bta7")]
 position = Vector2(33, 138)
-
-[node name="HouseDoor" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HouseDoor"]
-position = Vector2(99, 24)
-shape = SubResource("RectangleShape2D_e7vek")
-
-[connection signal="body_entered" from="HouseDoor" to="." method="_on_house_door_body_entered"]
-[connection signal="body_exited" from="HouseDoor" to="." method="_on_house_door_body_exited"]

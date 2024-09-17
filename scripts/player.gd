@@ -10,7 +10,7 @@ var state = STATES.IDLE
 
 var mouse_location = null
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	mouse_location = get_global_mouse_position() - self.position
 	
 	var direction = Input.get_vector("left", "right", "up", "down")
