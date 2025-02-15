@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://y7u02ywd3iu"]
+
+[ext_resource type="PackedScene" uid="uid://cgrvu8ipigsye" path="res://scenes/player.tscn" id="1_pk8sf"]
+
+[node name="HouseWorldFirstFloor" type="Node2D"]
+
+[node name="TileMap" type="TileMap" parent="."]
+format = 2
+layer_0/name = "floor"
+layer_0/z_index = -2
+layer_0/tile_data = PackedInt32Array(0, 0, 0, 65536, 0, 0, 65537, 0, 0, 1, 0, 0, 131072, 0, 0, -65535, 0, 0, 2, 0, 0, 65538, 0, 0, 131074, 0, 0, 131073, 0, 0, 3, 0, 0, 65539, 0, 0, 131075, 0, 0, -65536, 0, 0, -65534, 0, 0, -65533, 0, 0)
+
+[node name="Player" parent="." instance=ExtResource("1_pk8sf")]
