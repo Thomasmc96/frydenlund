@@ -307,7 +307,7 @@ position = Vector2(0, 4)
 shape = SubResource("CircleShape2D_qnwqg")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(1.3, 1.3)
+zoom = Vector2(4, 4)
 
 [node name="Joystick" parent="Camera2D" instance=ExtResource("3_dc2ft")]
 z_index = 4096
