@@ -26,27 +26,35 @@ func _physics_process(_delta):
 				animated_sprite.play("dir_w")
 			if previous_direction.x == 1:
 				animated_sprite.play("dir_e")
+			if previous_direction.y == -1:
+				animated_sprite.play("dir_n")
+			if previous_direction.y == 1:
+				animated_sprite.play("dir_s")
 		if state == STATES.IDLE:
 			if direction.x == -1:
 				animated_sprite.play("idle_w")
 			if direction.x == 1:
 				animated_sprite.play("idle_e")
+			if direction.y == -1:
+				animated_sprite.play("dir_n")
+			if direction.y == 1:
+				animated_sprite.play("dir_s")
 		elif state == STATES.WALKING:
 			if direction.x == -1:
 				animated_sprite.play("walk_w")
 			if direction.x == 1:
 				animated_sprite.play("walk_e")
-			#if direction.y == -1:
-				#animated_sprite.play("walk_n")
-			#if direction.y == 1:
-				#animated_sprite.play("walk_s")
+			if direction.y == -1:
+				animated_sprite.play("walk_n")
+			if direction.y == 1:
+				animated_sprite.play("walk_s")
 			
 	if is_roaming:
 		match state:
 			STATES.IDLE:
 				pass
 			STATES.NEW_DIR:
-				direction = chooseRandom([Vector2.RIGHT, Vector2.LEFT])
+				direction = chooseRandom([Vector2.RIGHT, Vector2.LEFT, Vector2.UP, Vector2.DOWN])
 			STATES.WALKING:
 				move()	
 				
@@ -74,9 +82,9 @@ func getLookingDirection(object):
 			animated_sprite.play("idle_w")
 	else:
 		if y_position_diff > 0:
-			animated_sprite.play("idle")
+			animated_sprite.play("dir_s")
 		else:
-			animated_sprite.play("idle_n")
+			animated_sprite.play("dir_n")
 
 func chooseRandom(array):
 	array.shuffle()
@@ -90,7 +98,7 @@ func move():
 func _on_timer_timeout():
 	previous_direction = direction	
 	is_chatting = false
-	timer.wait_time = chooseRandom([0.5, 1, 1.5])
+	timer.wait_time = chooseRandom([2.5, 3, 4.5])
 	state = chooseRandom(STATES.values())
 
 func _on_area_2d_body_entered(body):

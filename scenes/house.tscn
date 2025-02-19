@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://byiqvouidorrq" path="res://art/buildings/house_new.png" id="1_yy88r"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_33o82"]
-size = Vector2(62, 45)
+size = Vector2(66, 45)
 
 [node name="House" type="StaticBody2D"]
 y_sort_enabled = true
@@ -12,5 +12,5 @@ y_sort_enabled = true
 texture = ExtResource("1_yy88r")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(2, 25.5)
+position = Vector2(1, 25.5)
 shape = SubResource("RectangleShape2D_33o82")

@@ -8,7 +8,7 @@ class_name Ditte
 
 enum STATES {WALKING, IDLE, NEW_DIR}
 
-const speed = 30
+const speed = 25
 var state = STATES.IDLE
 var is_roaming = true
 var is_chatting = false
