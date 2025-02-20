@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://dbu86cgmwmqwh"]
+[gd_scene load_steps=9 format=3 uid="uid://dbu86cgmwmqwh"]
 
 [ext_resource type="Script" path="res://scripts/dog.gd" id="1_jo1a2"]
 [ext_resource type="Texture2D" uid="uid://cn4t1lrp5c318" path="res://art/animals/alma.png" id="1_pwbky"]
+[ext_resource type="PackedScene" uid="uid://dlr0sl57tq4jy" path="res://scenes/nametag.tscn" id="3_4yy00"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_i5yq3"]
 atlas = ExtResource("1_pwbky")
@@ -41,13 +42,22 @@ animation = &"idle"
 frame_progress = 0.397247
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(0, 3)
 shape = SubResource("CircleShape2D_rsumw")
 
 [node name="Area2D" type="Area2D" parent="."]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_6utso")
+
+[node name="Nametag" parent="." instance=ExtResource("3_4yy00")]
+offset_left = -7.0
+offset_top = 9.0
+offset_right = -7.0
+offset_bottom = 9.0
+nameOnTag = "Alma"
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

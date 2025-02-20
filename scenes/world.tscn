@@ -495,7 +495,7 @@ position = Vector2(33, 138)
 [node name="HouseDoor" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HouseDoor"]
-position = Vector2(97, 24)
+position = Vector2(98, 24)
 shape = SubResource("RectangleShape2D_e7vek")
 
 [connection signal="body_entered" from="HouseDoor" to="." method="_on_house_door_body_entered"]

@@ -1,7 +1,8 @@
-[gd_scene load_steps=27 format=3 uid="uid://dyugpmlegtfof"]
+[gd_scene load_steps=28 format=3 uid="uid://dyugpmlegtfof"]
 
 [ext_resource type="Script" path="res://scripts/ditte.gd" id="1_b2o5f"]
 [ext_resource type="Texture2D" uid="uid://dlybtpux7ylj0" path="res://art/characters/ditte.png" id="1_xol2c"]
+[ext_resource type="PackedScene" uid="uid://dlr0sl57tq4jy" path="res://scenes/nametag.tscn" id="3_ojj63"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_njrp4"]
 atlas = ExtResource("1_xol2c")
@@ -205,9 +206,10 @@ script = ExtResource("1_b2o5f")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 unique_name_in_owner = true
 sprite_frames = SubResource("SpriteFrames_ar624")
-animation = &"idle_w"
+animation = &"idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(0, 6)
 shape = SubResource("CircleShape2D_vqf67")
 
@@ -217,9 +219,17 @@ wait_time = 2.0
 autostart = true
 
 [node name="Area2D" type="Area2D" parent="."]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_fibfo")
+
+[node name="Nametag" parent="." instance=ExtResource("3_ojj63")]
+offset_left = -8.0
+offset_top = 10.0
+offset_right = -8.0
+offset_bottom = 10.0
+nameOnTag = "Ditte"
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
