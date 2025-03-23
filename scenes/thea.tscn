@@ -260,6 +260,7 @@ radius = 5.0
 radius = 11.0
 
 [node name="Thea" type="CharacterBody2D"]
+scale = Vector2(0.9, 0.9)
 script = ExtResource("1_h434w")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

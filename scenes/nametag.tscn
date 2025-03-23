@@ -23,6 +23,7 @@ patch_margin_right = 3
 patch_margin_bottom = 3
 
 [node name="Label" type="Label" parent="NinePatchRect"]
+layout_mode = 0
 offset_right = 320.0
 offset_bottom = 120.0
 scale = Vector2(0.05, 0.05)

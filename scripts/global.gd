@@ -12,4 +12,4 @@ var world_house_door_pos_x = 86;
 var world_house_door_pos_y = 20;
 
 var house_world_door_pos_x = 389;
-var house_world_door_pos_y = 329;
+var house_world_door_pos_y = 387;
