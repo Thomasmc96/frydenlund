@@ -1,16 +1,16 @@
 [gd_scene load_steps=3 format=3 uid="uid://vovgx1qg71jy"]
 
-[ext_resource type="Texture2D" uid="uid://byiqvouidorrq" path="res://art/buildings/house_new.png" id="1_yy88r"]
+[ext_resource type="Texture2D" uid="uid://b8dfdvtb1vll6" path="res://art/buildings/house_new_v2.png" id="1_vam7p"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_33o82"]
-size = Vector2(66, 45)
+size = Vector2(66, 38)
 
 [node name="House" type="StaticBody2D"]
 y_sort_enabled = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_yy88r")
+texture = ExtResource("1_vam7p")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1, 25.5)
+position = Vector2(1, 22)
 shape = SubResource("RectangleShape2D_33o82")

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://4mrrtmsmm8q1"
-path="res://.godot/imported/floor_wood_wall_n.png-577a82a6af1f19e7eb1b27f8c8c1b4ed.ctex"
+uid="uid://cspf1bhwh1lik"
+path="res://.godot/imported/floor_wood_wall_e.png-8803b111c1cf3437ffa2bd6d58ead7e5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/world/floor_wood_wall_n.png"
-dest_files=["res://.godot/imported/floor_wood_wall_n.png-577a82a6af1f19e7eb1b27f8c8c1b4ed.ctex"]
+source_file="res://art/world/floor/floor_wood_wall_e.png"
+dest_files=["res://.godot/imported/floor_wood_wall_e.png-8803b111c1cf3437ffa2bd6d58ead7e5.ctex"]
 
 [params]
 
