@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://bby1tumctqprm"]
+[gd_scene load_steps=41 format=3 uid="uid://bby1tumctqprm"]
 
 [ext_resource type="Script" path="res://scripts/houseWorld.gd" id="1_pp03v"]
 [ext_resource type="PackedScene" uid="uid://cgrvu8ipigsye" path="res://scenes/player.tscn" id="1_x1nvy"]
@@ -15,6 +15,9 @@
 [ext_resource type="Texture2D" uid="uid://s23ko1hphccg" path="res://art/world/floor/floor_wood_wall_e_and_w.png" id="8_riiow"]
 [ext_resource type="Texture2D" uid="uid://emdidmejvtj5" path="res://art/world/floor/floor_wood_wall_e_and_n.png" id="12_iphlm"]
 [ext_resource type="Texture2D" uid="uid://d4t6l0p3ahhq" path="res://art/world/floor/floor_wood_wall_e_and_s.png" id="13_83kfc"]
+[ext_resource type="Texture2D" uid="uid://d40n12cd7fbq" path="res://art/buildings/items/table_dining.png" id="16_1bkn6"]
+[ext_resource type="Texture2D" uid="uid://iq01lwhpxf6w" path="res://art/buildings/items/chair_dining_left.png" id="17_qx2u6"]
+[ext_resource type="Texture2D" uid="uid://br2pfls50ii1q" path="res://art/buildings/items/chair_dining_right.png" id="18_4sod1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ipfgv"]
 texture = ExtResource("2_8f5la")
@@ -155,7 +158,7 @@ sources/12 = SubResource("TileSetAtlasSource_4smo4")
 size = Vector2(4, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ne78n"]
-size = Vector2(49, 31)
+size = Vector2(49, 27.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y0aa4"]
 size = Vector2(25, 33)
@@ -166,17 +169,26 @@ size = Vector2(20, 3)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4xy43"]
 size = Vector2(19, 6.5)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_qpt3x"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5mdm6"]
+size = Vector2(8.04106, 7.11382)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uwrg4"]
+size = Vector2(8, 7)
+
 [node name="HouseWorld" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_pp03v")
 
 [node name="TileMap" type="TileMap" parent="."]
+position = Vector2(-2, 1)
 scale = Vector2(0.5, 0.5)
 tile_set = SubResource("TileSet_1ymi3")
 format = 2
 layer_0/name = "floor"
 layer_0/z_index = -2
-layer_0/tile_data = PackedInt32Array(983063, 0, 0, 983064, 0, 0, 917527, 0, 0, 917526, 0, 0, 917525, 0, 0, 917524, 0, 0, 917523, 4, 0, 917528, 0, 0, 983065, 0, 0, 917529, 0, 0, 851993, 0, 0, 851992, 0, 0, 851991, 0, 0, 851990, 0, 0, 851989, 0, 0, 851988, 0, 0, 851987, 4, 0, 851994, 2, 0, 917530, 2, 0, 983066, 2, 0, 786451, 4, 0, 786458, 2, 0, 786457, 0, 0, 786456, 0, 0, 786455, 0, 0, 786454, 0, 0, 786453, 0, 0, 786452, 0, 0, 983059, 0, 0, 983060, 0, 0, 983061, 0, 0, 983062, 5, 0, 720915, 1, 0, 720922, 1, 0, 720921, 1, 0, 720920, 1, 0, 720919, 1, 0, 720918, 1, 0, 720917, 1, 0, 720916, 1, 0, 655379, 65537, 0, 655380, 65537, 0, 655381, 65537, 0, 655382, 65537, 0, 655383, 65537, 0, 655384, 65537, 0, 655385, 65537, 0, 655386, 65537, 0, 1114131, 1, 0, 1179667, 4, 0, 1114132, 1, 0, 1179668, 0, 0, 1114133, 1, 0, 1179669, 0, 0, 1114134, 1, 0, 1179670, 0, 0, 1114135, 4, 0, 1179671, 4, 0, 1114136, 0, 0, 1179672, 0, 0, 1114137, 0, 0, 1179673, 0, 0, 1114138, 2, 0, 1179674, 2, 0, 1048598, 65537, 0, 1048597, 65537, 0, 1048596, 65537, 0, 1048595, 65537, 0, 1048599, 4, 0, 1048600, 0, 0, 1048601, 0, 0, 1048602, 2, 0, 1310739, 4, 0, 1376275, 4, 0, 1441811, 4, 0, 1507347, 4, 0, 1572883, 4, 0, 1638419, 4, 0, 1310740, 0, 0, 1376276, 0, 0, 1441812, 0, 0, 1507348, 2, 0, 1572884, 2, 0, 1638420, 2, 0, 1310741, 0, 0, 1376277, 0, 0, 1441813, 5, 0, 1507349, 65537, 0, 1572885, 1, 0, 1638421, 0, 0, 1310742, 0, 0, 1376278, 0, 0, 1441814, 5, 0, 1507350, 65537, 0, 1572886, 1, 0, 1638422, 0, 0, 1310743, 0, 0, 1376279, 0, 0, 1441815, 4, 0, 1507351, 6, 0, 1572887, 6, 0, 1638423, 2, 0, 1310744, 0, 0, 1376280, 0, 0, 1441816, 5, 0, 1507352, 65537, 0, 1572888, 1, 0, 1638424, 0, 0, 1310745, 0, 0, 1376281, 0, 0, 1441817, 5, 0, 1507353, 65537, 0, 1572889, 1, 0, 1638425, 0, 0, 1310746, 2, 0, 1376282, 2, 0, 1441818, 10, 0, 1507354, 65537, 0, 1572890, 1, 0, 1638426, 2, 0, 1703955, 12, 0, 1703956, 10, 0, 1703957, 5, 0, 1703958, 5, 0, 1703959, 0, 0, 1703960, 5, 0, 1703961, 5, 0, 1703962, 10, 0, 1245203, 0, 0, 1245204, 0, 0, 1245205, 0, 0, 1245206, 0, 0, 1245207, 4, 0, 1245208, 0, 0, 1245209, 0, 0, 1245210, 2, 0)
+layer_0/tile_data = PackedInt32Array(983063, 0, 0, 983064, 0, 0, 917527, 0, 0, 917526, 0, 0, 917525, 0, 0, 917524, 0, 0, 917523, 4, 0, 917528, 0, 0, 983065, 0, 0, 917529, 0, 0, 851993, 0, 0, 851992, 0, 0, 851991, 0, 0, 851990, 0, 0, 851989, 0, 0, 851988, 0, 0, 851987, 4, 0, 851994, 2, 0, 917530, 2, 0, 983066, 2, 0, 786451, 1, 0, 786458, 1, 0, 786457, 1, 0, 786456, 1, 0, 786455, 1, 0, 786454, 1, 0, 786453, 1, 0, 786452, 1, 0, 983059, 12, 0, 983060, 5, 0, 983061, 5, 0, 983062, 5, 0, 1114131, 1, 0, 1179667, 4, 0, 1114132, 1, 0, 1179668, 0, 0, 1114133, 1, 0, 1179669, 0, 0, 1114134, 1, 0, 1179670, 0, 0, 1114135, 4, 0, 1179671, 4, 0, 1114136, 0, 0, 1179672, 0, 0, 1114137, 0, 0, 1179673, 0, 0, 1114138, 2, 0, 1179674, 2, 0, 1048598, 65537, 0, 1048597, 65537, 0, 1048596, 65537, 0, 1048595, 65537, 0, 1048599, 4, 0, 1048600, 0, 0, 1048601, 0, 0, 1048602, 2, 0, 1310739, 4, 0, 1376275, 4, 0, 1441811, 4, 0, 1507347, 4, 0, 1572883, 4, 0, 1638419, 4, 0, 1310740, 0, 0, 1376276, 0, 0, 1441812, 0, 0, 1507348, 2, 0, 1572884, 2, 0, 1638420, 2, 0, 1310741, 0, 0, 1376277, 0, 0, 1441813, 5, 0, 1507349, 65537, 0, 1572885, 1, 0, 1638421, 0, 0, 1310742, 0, 0, 1376278, 0, 0, 1441814, 5, 0, 1507350, 65537, 0, 1572886, 1, 0, 1638422, 0, 0, 1310743, 0, 0, 1376279, 0, 0, 1441815, 4, 0, 1507351, 6, 0, 1572887, 6, 0, 1638423, 2, 0, 1310744, 0, 0, 1376280, 0, 0, 1441816, 5, 0, 1507352, 65537, 0, 1572888, 1, 0, 1638424, 0, 0, 1310745, 0, 0, 1376281, 0, 0, 1441817, 5, 0, 1507353, 65537, 0, 1572889, 1, 0, 1638425, 0, 0, 1310746, 2, 0, 1376282, 2, 0, 1441818, 10, 0, 1507354, 65537, 0, 1572890, 1, 0, 1638426, 2, 0, 1703955, 12, 0, 1703956, 10, 0, 1703957, 5, 0, 1703958, 5, 0, 1703959, 0, 0, 1703960, 5, 0, 1703961, 5, 0, 1703962, 10, 0, 1245203, 0, 0, 1245204, 0, 0, 1245205, 0, 0, 1245206, 0, 0, 1245207, 4, 0, 1245208, 0, 0, 1245209, 0, 0, 1245210, 2, 0, 720915, 65537, 0, 720916, 65537, 0, 720917, 65537, 0, 720918, 65537, 0, 720919, 65537, 0, 720920, 65537, 0, 720921, 65537, 0, 720922, 65537, 0)
 layer_1/name = "obstacles"
 layer_1/tile_data = PackedInt32Array()
 
@@ -198,7 +210,7 @@ position = Vector2(0, -4)
 texture = ExtResource("5_jwjaj")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Stairs"]
-position = Vector2(12.5, 8)
+position = Vector2(12.5, 9.75)
 shape = SubResource("RectangleShape2D_ne78n")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Stairs"]
@@ -216,6 +228,46 @@ shape = SubResource("RectangleShape2D_0o4rs")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DoorSouth"]
 position = Vector2(470, 541.75)
 shape = SubResource("RectangleShape2D_4xy43")
+
+[node name="Table_dining" type="StaticBody2D" parent="."]
+y_sort_enabled = true
+scale = Vector2(0.994865, 0.983982)
+
+[node name="Sprite2D" type="Sprite2D" parent="Table_dining"]
+position = Vector2(514, 437)
+texture = ExtResource("16_1bkn6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Table_dining"]
+position = Vector2(510, 437)
+shape = SubResource("CircleShape2D_qpt3x")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Table_dining"]
+position = Vector2(518, 437)
+shape = SubResource("CircleShape2D_qpt3x")
+
+[node name="Chair_dining_left" type="StaticBody2D" parent="."]
+y_sort_enabled = true
+position = Vector2(528, 435)
+scale = Vector2(0.994865, 0.983982)
+
+[node name="Sprite2D" type="Sprite2D" parent="Chair_dining_left"]
+texture = ExtResource("17_qx2u6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Chair_dining_left"]
+position = Vector2(0.00012207, 3.55707)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_5mdm6")
+
+[node name="Chair_dining_right" type="StaticBody2D" parent="."]
+y_sort_enabled = true
+position = Vector2(494, 435)
+
+[node name="Sprite2D" type="Sprite2D" parent="Chair_dining_right"]
+texture = ExtResource("18_4sod1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Chair_dining_right"]
+position = Vector2(0, 3.5)
+shape = SubResource("RectangleShape2D_uwrg4")
 
 [connection signal="body_entered" from="DoorWest" to="." method="_on_door_body_entered"]
 [connection signal="body_exited" from="DoorWest" to="." method="_on_door_body_exited"]
