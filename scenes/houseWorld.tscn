@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://bby1tumctqprm"]
+[gd_scene load_steps=47 format=3 uid="uid://bby1tumctqprm"]
 
 [ext_resource type="Script" path="res://scripts/houseWorld.gd" id="1_pp03v"]
 [ext_resource type="PackedScene" uid="uid://cgrvu8ipigsye" path="res://scenes/player.tscn" id="1_x1nvy"]
@@ -18,6 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://d40n12cd7fbq" path="res://art/buildings/items/table_dining.png" id="16_1bkn6"]
 [ext_resource type="Texture2D" uid="uid://iq01lwhpxf6w" path="res://art/buildings/items/chair_dining_left.png" id="17_qx2u6"]
 [ext_resource type="Texture2D" uid="uid://br2pfls50ii1q" path="res://art/buildings/items/chair_dining_right.png" id="18_4sod1"]
+[ext_resource type="Texture2D" uid="uid://bpqawjjtumpw6" path="res://art/buildings/items/couch.png" id="19_x6e7s"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ipfgv"]
 texture = ExtResource("2_8f5la")
@@ -137,7 +138,7 @@ texture_region_size = Vector2i(40, 40)
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-20, -20, -20, -20, -16.875, -20, -17.125, 20, -20, 20)
 0:0/0/physics_layer_0/polygon_1/points = PackedVector2Array(17.875, -20, 20, -20, 20, 20, 17.625, 20, 17.375, -20)
 
-[sub_resource type="TileSet" id="TileSet_1ymi3"]
+[sub_resource type="TileSet" id="TileSet_21uk6"]
 tile_size = Vector2i(40, 40)
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_ipfgv")
@@ -158,13 +159,13 @@ sources/12 = SubResource("TileSetAtlasSource_4smo4")
 size = Vector2(4, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ne78n"]
-size = Vector2(49, 27.5)
+size = Vector2(49, 21.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y0aa4"]
-size = Vector2(25, 33)
+size = Vector2(25, 28)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_0o4rs"]
-size = Vector2(20, 3)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n65h0"]
+size = Vector2(3, 13)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4xy43"]
 size = Vector2(19, 6.5)
@@ -177,6 +178,21 @@ size = Vector2(8.04106, 7.11382)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uwrg4"]
 size = Vector2(8, 7)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_spmo1"]
+size = Vector2(9.28574, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xss55"]
+size = Vector2(8.57143, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gfm1m"]
+size = Vector2(20, 8.57143)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mq1iy"]
+size = Vector2(2.14285, 11.4286)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mdtwh"]
+size = Vector2(18, 4.75)
+
 [node name="HouseWorld" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_pp03v")
@@ -184,7 +200,7 @@ script = ExtResource("1_pp03v")
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2(-2, 1)
 scale = Vector2(0.5, 0.5)
-tile_set = SubResource("TileSet_1ymi3")
+tile_set = SubResource("TileSet_21uk6")
 format = 2
 layer_0/name = "floor"
 layer_0/z_index = -2
@@ -193,7 +209,7 @@ layer_1/name = "obstacles"
 layer_1/tile_data = PackedInt32Array()
 
 [node name="Player" parent="." instance=ExtResource("1_x1nvy")]
-position = Vector2(470, 527)
+position = Vector2(421, 267)
 
 [node name="DoorWest" type="Area2D" parent="."]
 
@@ -210,18 +226,16 @@ position = Vector2(0, -4)
 texture = ExtResource("5_jwjaj")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Stairs"]
-position = Vector2(12.5, 9.75)
+position = Vector2(12.5, 12.75)
 shape = SubResource("RectangleShape2D_ne78n")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Stairs"]
-position = Vector2(-24.5, 7.5)
+position = Vector2(-24.5, 10)
 shape = SubResource("RectangleShape2D_y0aa4")
 
-[node name="Area2D" type="Area2D" parent="Stairs"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Stairs/Area2D"]
-position = Vector2(-26, -10)
-shape = SubResource("RectangleShape2D_0o4rs")
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Stairs"]
+position = Vector2(-14, -7)
+shape = SubResource("RectangleShape2D_n65h0")
 
 [node name="DoorSouth" type="Area2D" parent="."]
 
@@ -255,7 +269,6 @@ texture = ExtResource("17_qx2u6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Chair_dining_left"]
 position = Vector2(0.00012207, 3.55707)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_5mdm6")
 
 [node name="Chair_dining_right" type="StaticBody2D" parent="."]
@@ -269,7 +282,40 @@ texture = ExtResource("18_4sod1")
 position = Vector2(0, 3.5)
 shape = SubResource("RectangleShape2D_uwrg4")
 
+[node name="Couch" type="StaticBody2D" parent="."]
+y_sort_enabled = true
+position = Vector2(504, 274)
+scale = Vector2(1.4, 1.4)
+
+[node name="Sprite2D" type="Sprite2D" parent="Couch"]
+texture = ExtResource("19_x6e7s")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Couch"]
+position = Vector2(-15, -1.42857)
+shape = SubResource("RectangleShape2D_spmo1")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Couch"]
+position = Vector2(15, -3.57144)
+shape = SubResource("RectangleShape2D_xss55")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Couch"]
+position = Vector2(2.17983e-05, -5.00001)
+shape = SubResource("RectangleShape2D_gfm1m")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Couch"]
+position = Vector2(-21.4286, -0.71429)
+shape = SubResource("RectangleShape2D_mq1iy")
+
+[node name="Stairs_up" type="Area2D" parent="."]
+position = Vector2(390, 289)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stairs_up"]
+position = Vector2(-1, 0)
+shape = SubResource("RectangleShape2D_mdtwh")
+
 [connection signal="body_entered" from="DoorWest" to="." method="_on_door_body_entered"]
 [connection signal="body_exited" from="DoorWest" to="." method="_on_door_body_exited"]
 [connection signal="body_entered" from="DoorSouth" to="." method="_on_door_south_body_entered"]
 [connection signal="body_exited" from="DoorSouth" to="." method="_on_door_south_body_exited"]
+[connection signal="body_entered" from="Stairs_up" to="." method="_on_stairs_up_body_entered"]
+[connection signal="body_exited" from="Stairs_up" to="." method="_on_stairs_up_body_exited"]

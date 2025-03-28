@@ -18,3 +18,8 @@ var house_world_door_pos_x = 389;
 var house_world_door_pos_y = 387;
 var house_world_door_south_pos_x = 470;
 var house_world_door_south_pos_y = 527;
+var house_world_stairs_up_pos_x = 390;
+var house_world_stairs_up_pos_y = 272;
+
+var house_first_floor_world_stairs_down_pos_x = 59
+var house_first_floor_world_stairs_down_pos_y = 107
