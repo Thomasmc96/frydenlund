@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=3 uid="uid://bby1tumctqprm"]
+[gd_scene load_steps=51 format=3 uid="uid://bby1tumctqprm"]
 
 [ext_resource type="Script" path="res://scripts/houseWorld.gd" id="1_pp03v"]
 [ext_resource type="PackedScene" uid="uid://cgrvu8ipigsye" path="res://scenes/player.tscn" id="1_x1nvy"]
@@ -19,6 +19,8 @@
 [ext_resource type="Texture2D" uid="uid://iq01lwhpxf6w" path="res://art/buildings/items/chair_dining_left.png" id="17_qx2u6"]
 [ext_resource type="Texture2D" uid="uid://br2pfls50ii1q" path="res://art/buildings/items/chair_dining_right.png" id="18_4sod1"]
 [ext_resource type="Texture2D" uid="uid://bpqawjjtumpw6" path="res://art/buildings/items/couch.png" id="19_x6e7s"]
+[ext_resource type="Texture2D" uid="uid://dsl4k0exroser" path="res://art/buildings/items/toilet_new.png" id="20_0rbkq"]
+[ext_resource type="Texture2D" uid="uid://1ubj14vnnlyp" path="res://art/buildings/items/candlestick_small.png" id="21_vjuf1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ipfgv"]
 texture = ExtResource("2_8f5la")
@@ -193,6 +195,11 @@ size = Vector2(2.14285, 11.4286)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mdtwh"]
 size = Vector2(18, 4.75)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_krtvg"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vx5mg"]
+radius = 2.0
+
 [node name="HouseWorld" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_pp03v")
@@ -312,6 +319,26 @@ position = Vector2(390, 289)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Stairs_up"]
 position = Vector2(-1, 0)
 shape = SubResource("RectangleShape2D_mdtwh")
+
+[node name="Toilet" type="StaticBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Toilet"]
+position = Vector2(525, 503.5)
+texture = ExtResource("20_0rbkq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Toilet"]
+position = Vector2(527, 502.5)
+shape = SubResource("CircleShape2D_krtvg")
+
+[node name="Candle" type="StaticBody2D" parent="Toilet"]
+
+[node name="Sprite2D" type="Sprite2D" parent="Toilet/Candle"]
+position = Vector2(518, 487)
+texture = ExtResource("21_vjuf1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Toilet/Candle"]
+position = Vector2(518, 488)
+shape = SubResource("CircleShape2D_vx5mg")
 
 [connection signal="body_entered" from="DoorWest" to="." method="_on_door_body_entered"]
 [connection signal="body_exited" from="DoorWest" to="." method="_on_door_body_exited"]

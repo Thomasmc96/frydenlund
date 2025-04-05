@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://c48wuet40u74l"]
+[gd_scene load_steps=43 format=3 uid="uid://c48wuet40u74l"]
 
 [ext_resource type="Texture2D" uid="uid://balr3nsi4tkb3" path="res://art/world/floor/floor_wood.png" id="1_8vrjs"]
 [ext_resource type="Script" path="res://scenes/houseFirstFloorWorld.gd" id="1_wbnjy"]
@@ -14,6 +14,13 @@
 [ext_resource type="Texture2D" uid="uid://cr8qe6yacvycs" path="res://art/world/floor/floor_wood_wall_w.png" id="11_wulfx"]
 [ext_resource type="Texture2D" uid="uid://c6yb6cn00u8tu" path="res://art/world/floor/floor_wood_wall_w_and_n.png" id="12_y27no"]
 [ext_resource type="PackedScene" uid="uid://cgrvu8ipigsye" path="res://scenes/player.tscn" id="13_w07gx"]
+[ext_resource type="Texture2D" uid="uid://8ya07loredgl" path="res://art/buildings/items/bed.png" id="15_3rclk"]
+[ext_resource type="Texture2D" uid="uid://d1xfnda7hpf2s" path="res://art/buildings/items/bed2.png" id="16_yfnew"]
+[ext_resource type="Texture2D" uid="uid://df76xtassu03q" path="res://art/buildings/items/snorlax.png" id="17_w23h8"]
+[ext_resource type="Texture2D" uid="uid://0ieti14u3ibq" path="res://art/buildings/items/bidoof.png" id="18_g6bk3"]
+[ext_resource type="Texture2D" uid="uid://cnshqpbfnntit" path="res://art/buildings/items/chest_of_draws.png" id="19_snhvo"]
+[ext_resource type="Texture2D" uid="uid://cavihdw38vuy1" path="res://art/buildings/items/lamp_1.png" id="20_crob4"]
+[ext_resource type="Texture2D" uid="uid://ciu5pdo0g61w" path="res://art/buildings/items/pet_bed.png" id="21_wc3bm"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_an1vm"]
 texture = ExtResource("1_8vrjs")
@@ -143,6 +150,27 @@ sources/11 = SubResource("TileSetAtlasSource_ae4k7")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g4ku7"]
 size = Vector2(4, 20)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qpcwi"]
+size = Vector2(56, 25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gvvji"]
+size = Vector2(54, 16)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_me3vq"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_uf3fv"]
+radius = 7.14285
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_suhef"]
+size = Vector2(48, 16.5)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yyitp"]
+radius = 2.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_njve4"]
+radius = 6.0
+height = 22.0
+
 [node name="HouseFirstFloorWorld" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_wbnjy")
@@ -167,6 +195,78 @@ position = Vector2(48, 110)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(-2, 0)
 shape = SubResource("RectangleShape2D_g4ku7")
+
+[node name="Doublebed" type="StaticBody2D" parent="."]
+position = Vector2(19, 284)
+
+[node name="Sprite2D" type="Sprite2D" parent="Doublebed"]
+position = Vector2(-2, 3)
+texture = ExtResource("15_3rclk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Doublebed"]
+position = Vector2(-2, 4.5)
+shape = SubResource("RectangleShape2D_qpcwi")
+
+[node name="Singlebed" type="StaticBody2D" parent="."]
+position = Vector2(12, 11)
+
+[node name="Sprite2D" type="Sprite2D" parent="Singlebed"]
+texture = ExtResource("16_yfnew")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Singlebed"]
+position = Vector2(0, -2)
+shape = SubResource("RectangleShape2D_gvvji")
+
+[node name="Snorlax" type="StaticBody2D" parent="."]
+position = Vector2(55, 6)
+scale = Vector2(0.7, 0.7)
+
+[node name="Sprite2D" type="Sprite2D" parent="Snorlax"]
+texture = ExtResource("17_w23h8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Snorlax"]
+position = Vector2(0, 1)
+shape = SubResource("CircleShape2D_me3vq")
+
+[node name="Bidoof" type="StaticBody2D" parent="."]
+position = Vector2(73, 9)
+scale = Vector2(0.7, 0.7)
+
+[node name="Sprite2D" type="Sprite2D" parent="Bidoof"]
+texture = ExtResource("18_g6bk3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bidoof"]
+position = Vector2(0, -1.42857)
+shape = SubResource("CircleShape2D_uf3fv")
+
+[node name="Chest_of_draws" type="StaticBody2D" parent="."]
+position = Vector2(18, 163)
+
+[node name="Sprite2D" type="Sprite2D" parent="Chest_of_draws"]
+texture = ExtResource("19_snhvo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Chest_of_draws"]
+position = Vector2(0, -2)
+shape = SubResource("RectangleShape2D_suhef")
+
+[node name="Lamp" type="StaticBody2D" parent="Chest_of_draws"]
+position = Vector2(-19, -11)
+
+[node name="Sprite2D" type="Sprite2D" parent="Chest_of_draws/Lamp"]
+texture = ExtResource("20_crob4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Chest_of_draws/Lamp"]
+shape = SubResource("CircleShape2D_yyitp")
+
+[node name="Pet_bed" type="StaticBody2D" parent="."]
+position = Vector2(120, 308)
+
+[node name="Sprite2D" type="Sprite2D" parent="Pet_bed"]
+texture = ExtResource("21_wc3bm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pet_bed"]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_njve4")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
