@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=3 uid="uid://bby1tumctqprm"]
+[gd_scene load_steps=53 format=3 uid="uid://bby1tumctqprm"]
 
 [ext_resource type="Script" path="res://scripts/houseWorld.gd" id="1_pp03v"]
 [ext_resource type="PackedScene" uid="uid://cgrvu8ipigsye" path="res://scenes/player.tscn" id="1_x1nvy"]
@@ -21,6 +21,7 @@
 [ext_resource type="Texture2D" uid="uid://bpqawjjtumpw6" path="res://art/buildings/items/couch.png" id="19_x6e7s"]
 [ext_resource type="Texture2D" uid="uid://dsl4k0exroser" path="res://art/buildings/items/toilet_new.png" id="20_0rbkq"]
 [ext_resource type="Texture2D" uid="uid://1ubj14vnnlyp" path="res://art/buildings/items/candlestick_small.png" id="21_vjuf1"]
+[ext_resource type="Texture2D" uid="uid://d2vdt24s1apar" path="res://art/buildings/items/plant.png" id="22_n4tqr"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ipfgv"]
 texture = ExtResource("2_8f5la")
@@ -200,6 +201,9 @@ size = Vector2(18, 4.75)
 [sub_resource type="CircleShape2D" id="CircleShape2D_vx5mg"]
 radius = 2.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_viyfj"]
+radius = 8.0
+
 [node name="HouseWorld" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_pp03v")
@@ -339,6 +343,18 @@ texture = ExtResource("21_vjuf1")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Toilet/Candle"]
 position = Vector2(518, 488)
 shape = SubResource("CircleShape2D_vx5mg")
+
+[node name="Plant" type="StaticBody2D" parent="."]
+y_sort_enabled = true
+position = Vector2(527, 352)
+scale = Vector2(0.8, 0.8)
+
+[node name="Sprite2D" type="Sprite2D" parent="Plant"]
+texture = ExtResource("22_n4tqr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plant"]
+position = Vector2(-1, 13)
+shape = SubResource("CircleShape2D_viyfj")
 
 [connection signal="body_entered" from="DoorWest" to="." method="_on_door_body_entered"]
 [connection signal="body_exited" from="DoorWest" to="." method="_on_door_body_exited"]

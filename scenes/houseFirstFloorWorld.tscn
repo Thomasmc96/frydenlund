@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://c48wuet40u74l"]
+[gd_scene load_steps=45 format=3 uid="uid://c48wuet40u74l"]
 
 [ext_resource type="Texture2D" uid="uid://balr3nsi4tkb3" path="res://art/world/floor/floor_wood.png" id="1_8vrjs"]
 [ext_resource type="Script" path="res://scenes/houseFirstFloorWorld.gd" id="1_wbnjy"]
@@ -21,6 +21,7 @@
 [ext_resource type="Texture2D" uid="uid://cnshqpbfnntit" path="res://art/buildings/items/chest_of_draws.png" id="19_snhvo"]
 [ext_resource type="Texture2D" uid="uid://cavihdw38vuy1" path="res://art/buildings/items/lamp_1.png" id="20_crob4"]
 [ext_resource type="Texture2D" uid="uid://ciu5pdo0g61w" path="res://art/buildings/items/pet_bed.png" id="21_wc3bm"]
+[ext_resource type="Texture2D" uid="uid://ffwc2nkxy7j0" path="res://art/buildings/items/window_indoor.png" id="22_f7snm"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_an1vm"]
 texture = ExtResource("1_8vrjs")
@@ -171,6 +172,9 @@ radius = 2.0
 radius = 6.0
 height = 22.0
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_idyus"]
+size = Vector2(12, 12)
+
 [node name="HouseFirstFloorWorld" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_wbnjy")
@@ -267,6 +271,17 @@ texture = ExtResource("21_wc3bm")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Pet_bed"]
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_njve4")
+
+[node name="Window" type="StaticBody2D" parent="."]
+position = Vector2(93, -20)
+scale = Vector2(0.9, 0.9)
+
+[node name="Sprite2D" type="Sprite2D" parent="Window"]
+texture = ExtResource("22_f7snm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Window"]
+position = Vector2(0, -3)
+shape = SubResource("RectangleShape2D_idyus")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
