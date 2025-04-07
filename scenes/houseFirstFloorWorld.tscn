@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://c48wuet40u74l"]
+[gd_scene load_steps=51 format=3 uid="uid://c48wuet40u74l"]
 
 [ext_resource type="Texture2D" uid="uid://balr3nsi4tkb3" path="res://art/world/floor/floor_wood.png" id="1_8vrjs"]
 [ext_resource type="Script" path="res://scenes/houseFirstFloorWorld.gd" id="1_wbnjy"]
@@ -22,6 +22,9 @@
 [ext_resource type="Texture2D" uid="uid://cavihdw38vuy1" path="res://art/buildings/items/lamp_1.png" id="20_crob4"]
 [ext_resource type="Texture2D" uid="uid://ciu5pdo0g61w" path="res://art/buildings/items/pet_bed.png" id="21_wc3bm"]
 [ext_resource type="Texture2D" uid="uid://ffwc2nkxy7j0" path="res://art/buildings/items/window_indoor.png" id="22_f7snm"]
+[ext_resource type="Texture2D" uid="uid://d17gqp4jpe3j2" path="res://art/buildings/items/computer_table.png" id="23_n0ptc"]
+[ext_resource type="Texture2D" uid="uid://8lqsy2y0g5y" path="res://art/buildings/items/computer_chair_1.png" id="24_dsiey"]
+[ext_resource type="Texture2D" uid="uid://cckmi140nyy8m" path="res://art/buildings/items/computer_chair_2.png" id="25_h1dt5"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_an1vm"]
 texture = ExtResource("1_8vrjs")
@@ -175,6 +178,15 @@ height = 22.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_idyus"]
 size = Vector2(12, 12)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_diw8i"]
+size = Vector2(84.4445, 15.5556)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s5amf"]
+size = Vector2(10, 10)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_28n6c"]
+size = Vector2(10, 10)
+
 [node name="HouseFirstFloorWorld" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_wbnjy")
@@ -273,7 +285,7 @@ rotation = 1.5708
 shape = SubResource("CapsuleShape2D_njve4")
 
 [node name="Window" type="StaticBody2D" parent="."]
-position = Vector2(93, -20)
+position = Vector2(69, -19)
 scale = Vector2(0.9, 0.9)
 
 [node name="Sprite2D" type="Sprite2D" parent="Window"]
@@ -282,6 +294,39 @@ texture = ExtResource("22_f7snm")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Window"]
 position = Vector2(0, -3)
 shape = SubResource("RectangleShape2D_idyus")
+
+[node name="ComputerTable" type="StaticBody2D" parent="."]
+position = Vector2(27, 210)
+scale = Vector2(0.9, 0.9)
+
+[node name="Sprite2D" type="Sprite2D" parent="ComputerTable"]
+position = Vector2(-3.33333, 1.11111)
+scale = Vector2(1.02288, 1)
+texture = ExtResource("23_n0ptc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ComputerTable"]
+position = Vector2(-3.33333, 2.22223)
+shape = SubResource("RectangleShape2D_diw8i")
+
+[node name="ComputerChair1" type="StaticBody2D" parent="."]
+position = Vector2(38, 197)
+
+[node name="Sprite2D" type="Sprite2D" parent="ComputerChair1"]
+texture = ExtResource("24_dsiey")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ComputerChair1"]
+position = Vector2(0, 6)
+shape = SubResource("RectangleShape2D_s5amf")
+
+[node name="ComputerChair2" type="StaticBody2D" parent="."]
+position = Vector2(8, 197)
+
+[node name="Sprite2D" type="Sprite2D" parent="ComputerChair2"]
+texture = ExtResource("25_h1dt5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ComputerChair2"]
+position = Vector2(0, 6)
+shape = SubResource("RectangleShape2D_28n6c")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
