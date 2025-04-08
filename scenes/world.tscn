@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://cbbjultibaqt2"]
+[gd_scene load_steps=26 format=3 uid="uid://cbbjultibaqt2"]
 
 [ext_resource type="Texture2D" uid="uid://ctegnplc4tn8n" path="res://art/world/survivalgame-terrian-defult.png" id="1_bekrm"]
 [ext_resource type="Script" path="res://scripts/world.gd" id="1_gmt6a"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://is3jli1ukyaw" path="res://scenes/barn.tscn" id="9_aau4c"]
 [ext_resource type="PackedScene" uid="uid://l4i4jm5h6hr1" path="res://scenes/tom.tscn" id="11_vhbx2"]
 [ext_resource type="PackedScene" uid="uid://c0v0h3el2kucb" path="res://scenes/thea.tscn" id="12_1bta7"]
+[ext_resource type="Texture2D" uid="uid://dr67w63qtkc62" path="res://art/items/flagpole.png" id="14_enl0r"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_wc6in"]
 tile_data = PackedInt32Array(0, 2, 0, 65536, 2, 1, 131072, 2, 1, 196608, 2, 2, 1, 65538, 0, 65537, 262146, 1, 131073, 262146, 1, 196609, 262146, 2, 2, 65538, 0, 65538, 262146, 1, 131074, 262146, 1, 196610, 65538, 2, 3, 131074, 0, 65539, 327682, 1, 131075, 131074, 1, 196611, 131074, 2)
@@ -453,6 +454,31 @@ size = Vector2(12, 12)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pn0vu"]
 size = Vector2(7, 4)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_wwswk"]
+atlas = ExtResource("14_enl0r")
+region = Rect2(0, 0, 64, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4i53e"]
+atlas = ExtResource("14_enl0r")
+region = Rect2(64, 0, 64, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xjxir"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wwswk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4i53e")
+}],
+"loop": true,
+"name": &"default",
+"speed": 0.5
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iddh4"]
+size = Vector2(10, 8)
+
 [node name="World" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_gmt6a")
@@ -506,6 +532,21 @@ shape = SubResource("RectangleShape2D_e7vek")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HouseDoorSouth"]
 position = Vector2(129.5, 36)
 shape = SubResource("RectangleShape2D_pn0vu")
+
+[node name="Flagpole" type="StaticBody2D" parent="."]
+y_sort_enabled = true
+position = Vector2(292, -9)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Flagpole"]
+position = Vector2(1, 8)
+sprite_frames = SubResource("SpriteFrames_xjxir")
+autoplay = "default"
+frame_progress = 0.0674725
+offset = Vector2(24, -51)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Flagpole"]
+position = Vector2(-2, 17)
+shape = SubResource("RectangleShape2D_iddh4")
 
 [connection signal="body_entered" from="HouseDoorWest" to="." method="_on_house_door_body_entered"]
 [connection signal="body_exited" from="HouseDoorWest" to="." method="_on_house_door_body_exited"]
